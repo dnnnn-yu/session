@@ -1,0 +1,385 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.introduce{
+  width:100%;
+  margin: auto; 
+  background-color:white;
+  margin-top: 50px;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  margin-bottom:-50px;
+}
+.introduce h3{
+  text-align: center;
+  font-size: 22px;
+  color:rgb(99, 99, 99);
+  font-weight: bold;
+}
+
+.introduce p{
+  color:gray;
+  text-align: center;
+  font-size: 13px;
+  margin-bottom:3px;
+}
+
+.top-tags{
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.top-tags .row{
+    display: flex;
+    margin: auto;
+}
+
+.top-tag{
+    margin-top: 25px;
+    text-align: center;
+}
+
+.top-content{
+    margin:auto;
+    height: 150px;
+    width: 30vw;
+    background-color: white;
+    border-radius:10px;
+    box-shadow:1px 1px 7px rgb(172, 172, 172);
+}
+
+.top-img i{
+margin:10px;
+font-size:40px;
+color:rgb(88, 88, 88);
+}
+
+.top-discription{
+    font-size: 12px;
+    text-align: center;
+    color: gray;
+    margin: auto;
+    margin-top: 12px;
+    width: 220x;
+}
+
+.top-link a{
+    font-size: 20px;
+    color: gray;
+}
+
+.top-link a:hover{
+    text-decoration: none;
+    color: rgb(163, 197, 212);
+}
+
+
+.top-link a{
+	position: relative;
+	padding: 0px;
+	display: inline-block;
+	transition: .3s;
+	color: rgb(72, 78, 87);
+}
+
+.top-link a::after {
+
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	content: '';
+	width: 0;
+    height: 2px;
+
+	background-color: rgb(163, 197, 212);
+	transition: .3s;
+	transform: translateX(-50%);
+}
+
+.top-link a:hover::after {
+    text-decoration: none;
+	width: 100%;
+}
+
+.inquiry-index{
+    width:700px;
+    margin: 100px auto auto auto;
+}
+.inquiry-container{
+    border-radius: 10px;
+    background-color: white;
+    box-shadow:1px 1px 7px rgb(172, 172, 172);
+}
+
+.inquiry-container .row {
+    border-bottom:dotted 1px gray ;
+    padding:10px;
+    margin: auto;
+    color: gray;
+}
+
+.inquiry-container .row div{
+    margin: auto;
+}
+
+.inquiry-form {
+    display: none;
+    width: 500px;
+    margin: 0;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #666666;
+    position:fixed;
+    z-index: 2;
+    left:50%;
+    margin-left:-250px;
+    top:200px;
+    border-radius: 30px;
+    text-align: center;
+   }
+
+   .inquiry-form-2 {
+    display: none;
+    width: 500px;
+    margin: 0;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #666666;
+    position:fixed;
+    z-index: 2;
+    left:50%;
+    margin-left:-250px;
+    top:200px;
+    border-radius: 30px;
+    text-align: center;
+   } 
+   .release-form {
+    display: none;
+    width: 500px;
+    margin: 0;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #666666;
+    position:fixed;
+    z-index: 2;
+    left:50%;
+    margin-left:-250px;
+    top:200px;
+    border-radius: 30px;
+    text-align: center;
+   }  
+   .delete-form {
+    display: none;
+    width: 500px;
+    margin: 0;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #666666;
+    position:fixed;
+    z-index: 2;
+    left:50%;
+    margin-left:-250px;
+    top:200px;
+    border-radius: 30px;
+    text-align: center;
+   }       
+
+.inquiry-modal-back {
+    display: none;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.5);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 1;
+   }
+
+#close-inquiry-modal{
+    font-size: 12px;
+}
+
+.inquiry-form textarea{width:90%; height:150px;}
+.inquiry-form-2 textarea{width:90%; height:150px;}
+
+#close-inquiry-modal-1{cursor: pointer;}
+#close-inquiry-modal-2{cursor: pointer;}
+#close-inquiry-modal-3{cursor: pointer;}
+#close-inquiry-modal-4{cursor: pointer;}
+#open-inquiry-form{cursor: pointer;}
+#open-inquiry-form-2{cursor: pointer;}
+#open-release-form{cursor: pointer;}
+#open-delete-form{cursor: pointer;}
+
+
+.top-post-index{
+width:70%;
+margin:auto;
+margin-top: 50px;
+background-color: rgb(255, 255, 255);
+border-radius: 10px;
+box-shadow:1px 1px 7px rgb(172, 172, 172);
+}
+
+.top-post-index-title{
+width:100%;
+background-color: #eaeaea;
+margin-bottom: 10px;
+height :50px;
+text-align: center;
+padding: 10px;
+color: rgb(90, 90, 90);
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+.top-post-index-row{
+border-bottom:dotted 1px  lightgray;
+padding:10px;
+}
+
+.top-post-index-row-prof{
+text-align: center;
+margin:auto;
+}
+.top-post-index-row-prof span{
+color:gray;
+font-size: 13px;
+}
+.top-post-index-row-details {
+color: gray;
+}
+
+.top-post-index-row-details{
+margin-top: 3px;
+text-align: center;
+}
+
+.top-post-index-row-content{
+font-size: 12px;
+color:gray;
+}
+
+.top-post-index-row-writer{
+color:gray;
+}
+
+
+.m a{ font-size:16px; color:rgb(0, 162, 255); }
+.f a{font-size:16px; color:rgb(247, 118, 247);}
+.n a{font-size:16px; color:rgb(105, 105, 105);}
+
+.top-post-index-row-band-link a{
+color:gray;
+}
+
+.top-post-index-row-title a{
+color:gray;
+}
+
+
+
+@media screen and (max-width: 767px) {
+    .top-content{
+        margin:auto;
+        height: 160px;
+        width: 28vw;
+    }
+
+    .inquiry-index{
+        width:90%;
+        margin: 70px auto auto auto;
+    }
+
+    .top-tags .row{
+        margin:auto;
+    }
+    
+    .top-img img{
+      height: 66px;
+      width: 132px;
+      border-top-right-radius:3px;
+      border-top-left-radius:3px;
+    }
+    
+    .top-discription{
+        font-size: 11px;
+        text-align: center;
+        color: gray;
+        margin: auto;
+        margin-top: 12px;
+        width: 112px;
+    }
+    
+    .top-link  i{
+        display: none;
+        color:gray;
+        font-size: 12px;
+    }
+    
+    .top-link a{
+        font-size: 14px;
+        color: rgb(85, 85, 85);
+    }
+
+
+    .inquiry-form {
+        width: 90%;
+        margin: 0;
+        left:5%;
+        top:100px;
+       }
+    
+       .inquiry-form-2 {
+        width: 90%;
+        margin: 0;
+        left:5%;
+        top:100px;
+       } 
+       .release-form {
+        width: 90%;
+        margin: 0;
+        left:5%;
+        top:100px;
+       }  
+       .delete-form {
+        width: 90%;
+        margin: 0;
+        left:5%;
+        top:100px;
+       }    
+       .search-title{
+        width: 100%;
+    }
+    
+    .top-post-index{
+      width:90%;
+      margin-top: 30px;
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+  .top-tags{
+      margin-top: 80px;
+  }
+
+  .top-tags .row{
+    margin:auto;
+}
+}
+
+
+@media screen and (max-width: 645px) {
+    .top-content{
+        width:40vw;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .top-content{
+        width:400px;
+    }
+}

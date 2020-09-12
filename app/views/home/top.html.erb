@@ -1,0 +1,112 @@
+<% if @current_member == nil%>
+<div class="introduce">
+  <h3>仲間と一緒に音楽を楽しもう!</h3>
+  <p>Session!はバンドマン専用マッチングサイトです<br>
+    あなたにピッタリのメンバーを見つけましょう!<br></p>
+  <p>
+    まだアカウントをお持ちでない方は<%=link_to "こちら", "signup", style: "color:#3399FF; text-decoration:underline; font-weight:bold; font-size:14px;"%>
+  </p>
+</div>
+<% end %>
+
+<div class="top-tags container">
+  <div class="row">
+    <div class="top-tag col-xl-6 col-md-6 col-6">
+      <div class="top-content">
+        <div class="top-img">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="top-link">
+          <%=link_to('メンバー検索', '/search/members')%>
+        </div>
+        <div class="top-discription">
+          音楽をする仲間を探しましょう！
+        </div>
+      </div>
+    </div>
+    <div class="top-tag col-xl-3 col-md-6 col-6" style="display:none;">
+      <div class="top-content">
+        <div class="top-img">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="top-link">
+          <%= link_to('バンド検索', '/search/bands')%>
+        </div>
+        <div class="top-discription">
+          たくさんのバンドが登録しています!
+        </div>
+      </div>
+    </div>
+    <div class="top-tag col-xl-6 col-md-6 col-6">
+      <div class="top-content">
+        <div class="top-img">
+          <i class="fas fa-newspaper"></i>
+        </div>
+        <div class="top-link">
+          <%=link_to('記事検索', '/search/posts')%>
+        </div>
+        <div class="top-discription">
+          あなたに合う募集を探しましょう!<br>
+        </div>
+      </div>
+    </div>
+    <div class="top-tag col-xl-3 col-md-6 col-6" style="display:none;">
+      <div class="top-content">
+        <div class="top-img">
+          <i class="fas fa-drum" style="color:gray;"></i>
+        </div>
+        <div class="top-link">
+          <%= link_to('イベント検索', '/')%>
+        </div>
+        <div class="top-discription">
+          出演したいイベントを見つけましょう!<br>
+          (※近日リリース予定)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="top-post-index">
+
+  <div class="top-post-index-title">新着記事</div>
+
+  <div class="top-post-index-index container">
+
+    <% @posts.each do |post|%>
+    <div class="top-post-index-row row">
+      <div class="top-post-index-row-title col-md-6">
+        <%= link_to(post.title, "/posts/#{post.id}")%> <span style="color:red;">new!</span>
+      </div>
+      <div class="top-post-index-row-writer col-md-5">
+        　 <i class="fas fa-pen" style="color:lightgray;"></i> <%= Member.find_by(id: post.member_id)&.name %>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
+<% if @recommend_posts%>
+<div class="top-post-index">
+
+  <div class="top-post-index-title" style="height:64px;">おすすめ記事<br><span
+      style="font-size:10px;">(あなたのプロフィールにマッチした記事)</span></div>
+
+  <div class="top-post-index-index container">
+
+    <% @recommend_posts.each do |post|%>
+    <div class="top-post-index-row row">
+      <div class="top-post-index-row-title col-md-6">
+        <%= link_to(post.title, "/posts/#{post.id}")%> <span style="color:orange;">check!</span>
+      </div>
+      <div class="top-post-index-row-writer col-md-5">
+        　 <i class="fas fa-pen" style="color:lightgray;"></i> <%= Member.find_by(id: post.member_id)&.name %>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+<% end %>

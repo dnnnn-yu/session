@@ -1,0 +1,145 @@
+// Place all the styles related to the serch controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.search{
+    width: 700px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 3px;
+    background-color: white; 
+    text-align: center;
+    padding-bottom:10px;
+    box-shadow:1px 1px 7px rgb(172, 172, 172);
+  }
+
+.search-title{
+    color: rgb(255, 255, 255);
+    width: 700px;
+    height: 40px;
+    padding-top: 7px;
+    margin-bottom: 10px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    background-color: rgb(79, 191, 197);
+    border: solid 1px rgb(79, 191, 197);
+  }
+
+  .search-form-row{
+      color:rgb(87, 87, 87);
+      margin:5px;
+      padding:7px;
+      font-size: 12px;
+      border-bottom:dotted 1px  lightgray;
+  }
+
+  .search-button{
+    padding: 0px 10px;
+    text-align: center;
+    background-color: rgb(79, 191, 197);
+    height:30px;
+    border-radius: 15px;
+    margin: 10px ;
+    border: solid 1px rgb(79, 191, 197);
+    color:white;
+  }
+
+  .search-result{
+    width:50%;
+    margin:auto;
+    margin-top: 100px;
+    background-color: rgb(255, 255, 255);
+    box-shadow:1px 1px 7px rgb(172, 172, 172);
+  }
+
+  .search-result-row-img img{
+    margin-top: 15px;
+  }
+
+  .search-result-title{
+    width:100%;
+    background-color: rgb(79, 191, 197);
+    margin-bottom: 10px;
+    height :50px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+  }
+
+  .search-result-row{
+    border-bottom:dotted 1px  lightgray;
+    padding:10px;
+  }
+
+  .search-result-row-prof{
+    text-align: center;
+    margin:auto;
+  }
+  .search-result-row-prof span{
+    color:gray;
+    font-size: 13px;
+  }
+  .search-result-row-details {
+    color: gray;
+  }
+
+  .search-result-row-details{
+    margin-top: 3px;
+    text-align: center;
+  }
+
+  .search-result-row-content{
+    font-size: 12px;
+    color:gray;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .search-result-row-writer{
+    color:gray;
+    font-size:10px;
+    text-align: right;
+  }
+
+
+  .m a{ font-size:16px; color:rgb(0, 162, 255); }
+  .f a{font-size:16px; color:rgb(247, 118, 247);}
+  .n a{font-size:16px; color:rgb(105, 105, 105);}
+
+  .search-result-row-band-link a{
+    color:gray;
+  }
+
+  .search-result-row-title{
+    text-align: center;
+  }
+
+  .search-result-row-title a{
+    color:rgb(82, 82, 82);
+    margin:auto;
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 767px) {
+
+
+    .search{
+        width: 95%;
+        margin-top: 70px;
+    }
+
+    .search-title{
+        width: 100%;
+    }
+
+    .search-result{
+      width:95%;
+      margin-top: 70px;
+    }
+
+    .error_message{
+        font-size: 11px;
+    }
+  }

@@ -1,0 +1,15 @@
+<div class="member-edit">
+  <div class="member-edit-title">プロフィール編集</div>
+
+  <div>
+    <% if @error_message %>
+    <p class="error_message"><%= @error_message %></p>
+    <% end %>
+  </div>
+
+  <%= render partial: "form", locals: { member: @member } %>
+
+
+  <%= backward(request.referer) %>
+
+</div>

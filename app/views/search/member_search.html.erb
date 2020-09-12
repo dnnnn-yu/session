@@ -1,0 +1,61 @@
+<div class="search-result">
+
+  <div class="search-result-title">検索結果(<%= @members.count%>件)</div>
+
+  <div class="search-result-index container">
+
+    <% if @members.count == 0%>
+    <div class="search-result-row row">
+      <div class="col-12" style="text-align:center; color:gray;">
+        該当するメンバーはいません
+      </div>
+    </div>
+    <% end %>
+
+
+    <% @members.each do |member|%>
+
+    <div class="search-result-row row">
+      <div class="search-result-row-prof col-md-3">
+        <div class="search-result-row-img">
+          <% if  member.image.to_s.empty?%>
+          <%= image_tag "/icon.jpg", size: '48x48', class: "icon"%>
+          <% else %>
+          <%= image_tag member.image.to_s, size: '48x48', class: "icon"%>
+          <% end %>
+        </div>
+        <% if member.gender == "m"%>
+        <div class="m"><%= link_to(member.name, "/members/#{member.id}")%>
+          <span><%= "(#{member.age})" if member.age %></span></div>
+        <% elsif member.gender == "f"%>
+        <div class="f">
+          <%= link_to(member.name, "/members/#{member.id}")%><span><%= "(#{member.age})" if member.age %></span></div>
+        <% else %>
+        <div class="n"><%= link_to(member.name, "/members/#{member.id}")%>
+          <span><%= "(#{member.age})" if member.age %></span></div>
+        <% end %>
+
+
+      </div>
+
+      <div class="search-result-row-details col-md-9">
+        <p>
+          <%= display_items(member.parts, Constant::PART, :round_items)%>
+        </p>
+        <% if member.profile %>
+          <div style="font-size:14px">「</i><%= member.profile&.truncate(30, omission: '...')%>」</div>
+        <% end %>
+      </div>
+      <div class = "col-12" style="color:gray; text-align:right; font-size:10px; margin-bottom:5px;">
+          <% if member.pref%>
+          <i class="fas fa-map-marker-alt"></i> <%= member.pref%>
+          <% end %>
+      </div>
+    </div>
+
+    <% end %>
+
+  </div>
+</div>
+
+<%= backward('/search/members') %>

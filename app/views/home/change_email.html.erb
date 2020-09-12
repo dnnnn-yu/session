@@ -1,0 +1,33 @@
+<div class="member-login">
+  <div class="member-login_title">メールアドレスの確認・変更</div>
+  <% if @error_message %>
+  <p class="error_message"><%= @error_message %></p>
+  <% end %>
+  <%= form_with(model: @member,url: "/modify_email",method: :post, local: true) do |f| %>
+  <div style="margin-bottom:10px;">
+    <div style="color:gray; font-size:12px;">現在のメールアドレス</div>
+    <%= @member.email%>
+  </div>
+  <div style="color:gray; font-size:13px; margin:25px 0px 10px 0px;">
+    メールアドレスの変更をご希望の場合は<br>以下よりお願いします。
+  </div>
+  <div>
+    <div style="color:gray; font-size:12px;">メールアドレス</div>
+    <%= f.text_field :email , value: nil, placeholder:"abcde@example.com" ,class: "member-login-form"%>
+  </div>
+
+  <div>
+    <div style="color:gray; font-size:12px;">再入力</div>
+    <%= f.text_field :email_again , value: nil, placeholder:"abcde@example.com" ,class: "member-login-form"%>
+  </div>
+
+
+  <div>
+    <%=f.submit "変更する", class: "member-login-button"%>
+  </div>
+
+  <% end %>
+
+</div>
+
+<%= backward %>

@@ -1,0 +1,30 @@
+<div class="search-result">
+
+  <div class="search-result-title">マイ記事</div>
+
+  <div class="search-result-index container">
+
+    <% @posts.each do |post|%>
+    <div class="search-result-row row">
+      <div class="search-result-row-title col-8">
+        <%= link_to(post.title, "/posts/#{post.id}")%>
+      </div>
+      <div class="search-result-row-content col-3">
+        <div class="post-modify-icon">
+          <%= link_to "/posts/#{post.id}", method: :delete , data:{confirm: "削除しますか?"} do %>
+          <i class="fas fa-trash-alt"></i>削除
+          <% end %>
+        </div>
+        <div class="post-modify-icon">
+          <%= link_to("/posts/#{post.id}/edit") do %>
+          <i class="fas fa-edit"></i>編集
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
+<%= backward %>

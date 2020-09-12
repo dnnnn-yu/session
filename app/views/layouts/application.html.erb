@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Session! -バンドメンバー募集サイト-</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <%= favicon_link_tag('/guitar.ico') %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header>
+    <div class="header-title">
+      <%= link_to "/", {class: "title"} do%>
+      <%=image_tag "/logo.png", size: "30x30"%>
+      <h1 style="float:left;">Session!</h1>
+      <% end%>
+      <% if @current_member %>
+      <% if @regist != true%>
+      <div class="header-list who"><%= @current_member.name%>さんログイン中</div>
+      <% end %>
+      <div class="header-list">
+        <%= link_to '/logout', method: :post, data: { confirm: 'ログアウトしますか？' } do%>
+        <i class="fas fa-sign-out-alt"></i>
+        <% end %>
+      </div>
+      <% if @current_member.admin %>
+      <div class="header-list">
+        <%= link_to '/admin' do %>
+        <i class="fas fa-tools"></i>
+        <% end %>
+      </div>
+      <% end %>
+      <div class="header-list">
+        <%= link_to '/inquiry' do %>
+        <i class="fas fa-cog"></i>
+        <% end %>
+      </div>
+      <div class="header-list">
+        <i class="fas fa-bars"></i>
+      </div>
+      <% else %>
+      <div class="header-list"><%= link_to "ログイン", "/login_form"%></div>
+      <div class="header-list"><%= link_to "新規登録", "/signup"%></div>
+      <% end %>
+    </div>
+
+    <% if @current_member %>
+    <div class="header_contents container mw-100">
+      <div class="row">
+        <div class="col-6 col-md-4 col-lg-1">
+          <%= link_to "/members/#{@current_member.id}" do %>
+          <i class="fas fa-user"></i> プロフィール
+          <% end %>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-1">
+          <%= link_to '/likes' do %>
+          <i class="fas fa-heart"></i> お気に入り
+          <% end %>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-1">
+          <%= link_to '/posts/new' do %>
+          <i class="fas fa-feather-alt"></i> 記事作成
+          <% end %>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-1">
+          <%= link_to '/saves' do %>
+          <i class="far fa-newspaper"></i> 保存記事
+          <% end %>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to "/rooms", style:"width:200px;" do %>
+          <i class="fas fa-envelope"></i> メッセージ
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+    <div class="header_notice"><%= flash[:notice] %></div>
+    <% end%>
+
+    <% if flash[:warning] %>
+    <div class="header_warning"><%= flash[:warning] %></div>
+    <% end%>
+  </header>
+
+  <%= yield %>
+
+</body>
+
+</html>

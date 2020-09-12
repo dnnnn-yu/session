@@ -1,0 +1,50 @@
+<div class="likes-member">
+
+  <div class="likes-title">お気に入りメンバー</div>
+
+  <div class="likes-index container">
+    <% @members.each do |member|%>
+    <div class="likes-row row">
+
+      <div class="likes-row-prof col-md-3">
+        <div class="likes-row-img">
+          <% if  member.image.to_s.empty?%>
+          <%= image_tag "/icon.jpg", size: '48x48', class: "icon"%>
+          <% else %>
+          <%= image_tag member.image.to_s, size: '48x48', class: "icon"%>
+          <% end %>
+        </div>
+        <% if member.gender == "m"%>
+        <div class="m"><%= link_to(member.name, "/members/#{member.id}")%>
+          <span><%= "(#{member.age})" if member.age %></span></div>
+        <% elsif member.gender == "f"%>
+        <div class="f">
+          <%= link_to(member.name, "/members/#{member.id}")%><span><%= "(#{member.age})" if member.age %></span></div>
+        <% else %>
+        <div class="n"><%= link_to(member.name, "/members/#{member.id}")%>
+          <span><%= "(#{member.age})" if member.age %></span></div>
+        <% end %>
+
+
+      </div>
+
+      <div class="likes-row-details col-md-9">
+        <p>
+          <% if member.pref%>
+          <i class="fas fa-map-marker-alt"></i> <%= member.pref%>
+          <% end %>
+          <span> &nbsp;</span>
+          <i class="fas fa-music"></i>
+          <%= display_items(member.parts, Constant::PART, :items)%>
+        </p>
+        <% if member.profile%>
+        <p> <i class="far fa-comment-dots"></i><%= member.profile&.truncate(30, omission: '...')%></p>
+        <% end %>
+      </div>
+    </div>
+
+    <% end %>
+
+  </div>
+</div>
+<%= backward %>

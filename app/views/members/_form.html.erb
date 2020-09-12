@@ -1,0 +1,104 @@
+<div class="member-edit-form container">
+
+  <%= form_with(model: @member, local: true) do |f| %>
+
+  <div class="member-edit-row row">
+    <%= f.label "名前(必須)" , class: "col-lg-4"%>
+    <div class="col-lg-8">
+      <% if member.name == "No name" || member.name.nil? %>
+      <%= f.text_field :name , {value: nil}%>
+      <% else %>
+      <%= f.text_field :name %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="member-edit-row row">
+    <%= f.label :プロフィール画像 , class: "col-lg-4" %>
+    <div class="col-lg-8">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
+  <div class="member-edit-row row">
+    <%= f.label :生年月日 , class: "col-lg-4" %>
+    <div class="col-lg-8">
+      <%= f.date_select :birthday,
+      use_month_numbers: true, 
+      start_year: 1930, 
+      end_year: Time.now.year, 
+      default:  Date.new(Time.now.year - 20, 1, 1)
+    %>
+    </div>
+  </div>
+
+  <div class="member-edit-row row">
+    <%= f.label :性別 , class: "col-lg-4"%>
+    <div class="col-lg-8">
+      <%= f.radio_button :gender, 'm' %>
+      <%= f.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
+      <%= f.radio_button :gender, 'f' %>
+      <%= f.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
+    </div>
+  </div>
+
+  <div class="member-edit-row row">
+    <%= f.label "パート(複数選択可)" , class: "col-lg-4" %>
+    <div class="col-lg-8">
+      <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("0")}, "0", nil %>ボーカル
+      <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("1")}, "1", nil %>ギター
+      <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("2")}, "2", nil %>ベース
+      <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("3")}, "3", nil %>ドラム<br>
+      <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("4")}, "4", nil %>キーボード
+      <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("5")}, "5", nil %>作詞
+      <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("6")}, "6", nil %>作曲
+      <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("7")}, "7", nil %>編曲
+      <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("8")}, "8", nil %>その他
+    </div>
+  </div>
+
+  <div class="member-edit-row row">
+    <%= f.label :活動地域  , class: "col-lg-4"%>
+    <div class="col-lg-8">
+      <%= f.select :pref, Member.prefs.keys, {prompt: '都道府県を選択'} %>
+    </div>
+  </div>
+
+  <div class="member-edit-row row">
+    <%= f.label "ステータス(複数選択可)" , class: "col-lg-4" %>
+    <div class="col-lg-8">
+      <div style="display: inline-block; margin:auto; text-align:left;">
+        <%= f.check_box :status, {multiple: true, checked: member.status&.include?("a")}, "a", nil %>バンド活動中<br>
+        <%= f.check_box :status, {multiple: true, checked: member.status&.include?("0")}, "0", nil %>オリジナルバンドをしたい<br>
+        <%= f.check_box :status, {multiple: true, checked: member.status&.include?("1")}, "1", nil %>コピーバンドをしたい<br>
+        <!--<%= f.check_box :status, {multiple: true, checked: member.status&.include?("2")}, "2", nil %>サポートメンバーとして参加したい<br>
+        <%= f.check_box :status, {multiple: true, checked: member.status&.include?("3")}, "3", nil %>スタッフとして参加したい -->
+      </div>
+    </div>
+  </div>
+
+  <div class="member-edit-row row">
+    <%= f.label "音源"  , class: "col-lg-4"%>
+    <div class="col-lg-8">
+      URL <%= f.text_field :portfolio , class: "form_input"%>
+    </div>
+  </div>
+
+  <div class="member-edit-row row">
+    <%= f.label :プロフィール , class: "col-lg-4" %>
+    <div class="col-lg-8">
+      <%= f.text_area :profile %>
+    </div>
+  </div>
+
+  <div>
+    <%=f.submit "登録" , class: "member-edit-button"%>
+  </div>
+
+  <div>
+    <%= f.hidden_field :id, :value => member.id %>
+  </div>
+  <% end %>
+
+</div>

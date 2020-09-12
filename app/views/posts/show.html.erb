@@ -1,0 +1,89 @@
+<div class="post-show">
+<div style="position:relative; top:30px; left:20px; z-index:3;">
+  <%= link_to(request.referer) do %>
+  <i class="fas fa-angle-left"  style="color:lightgray; font-size:35px;"></i>
+  <% end %>
+</div>
+  <div class="post-show-index container">
+
+    <div class="row">
+      <div class="col-md-3">タイトル</div>　
+      <div class="col-md-8"><%= @post.title%></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">記事作成者</div>
+      <% if Member.find_by(id: @post.member_id)%>
+      <div class="col-md-8">
+        <%= link_to Member.find_by(id: @post.member_id).name, "/members/#{Member.find_by(id: @post.member_id).id}" %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">記事の種類</div>
+      <div class="col-md-8">
+        <%= display_items(@post.status, Constant::POST_STATUS, :items)%>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">募集パート</div>
+      <div class="col-md-8">
+        <%= display_items(@post.parts, Constant::PART, 'items') %>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-3">地域</div>
+      <div class="col-md-8"><%= @post.pref%></div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-3">年齢</div>
+      <div class="col-md-8"><%= @post.age_min %>才 ~ <%= @post.age_max %>才</div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-3">音源</div>
+      <div class="col-md-8">
+        <% if @post.portfolio.present? %>
+        <%= link_to(@post.portfolio.to_s, @post.portfolio.to_s) %>
+        <% else %>
+        -
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">内容</div>
+      <div class="col-md-8">
+        <%= @post.content%>
+      </div>
+    </div>
+    
+    <% if @current_member&.id != @post.member_id%>
+    <div class="row">
+      <div class="col-6 col-md-6">
+        <%= link_to("/saves/#{@post.id}/create", method: :post) do %>
+        <i class="fas fa-save"></i>
+        <p>記事を保存</p>
+        <% end %>
+      </div>
+      <div class="col-6 col-md-6">
+        <%= link_to( "/rooms/create/#{@post.member_id}", method: :post) do %>
+        <i class="fas fa-envelope" style="color:lightgreen;"></i>
+        <p>投稿者にメッセージ</p>
+        <% end %>
+      </div>      
+    </div>
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="rooms">
+  <div class="rooms-title">トーク</div>
+  <div class="rooms-index container">
+    <% @rooms.each do |room| %>
+    <% Participant.where(room_id: room.id).each do |participant| %>
+
+    <% if participant.member_id != @current_member.id%>
+    <div class="rooms-index-row row">
+      <div class="col-4">
+        <div>
+          <% if  Member.find_by(id: participant.member_id).image.to_s.empty?%>
+          <%= image_tag "/icon.jpg", size: '48x48', class: "icon"%>
+          <% else %>
+          <%= image_tag(Member.find_by(id: participant.member_id).image.to_s , size: '48x48', class: "icon" )%>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to  "/rooms/#{room.id}", data: {"turbolinks" => false}  do %>
+          <%= Member.find_by(id: participant.member_id).name%>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="talk-head col-8">
+        <%= Talk.where(room_id: room.id).last&.content&.truncate(25, omission: '...') %>
+      </div>
+    </div>
+    <% end %>
+
+    <% end %>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<%= backward %>

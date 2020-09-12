@@ -1,0 +1,60 @@
+<div class="inquiry-index">
+  <div class="inquiry-container container">
+    <div class="row">
+      <div><%=link_to("パスワードの変更", "/password", style: "color:gray;")%></div>
+    </div>
+    <div class="row">
+      <div><%=link_to("メールアドレスの確認・変更", "/email", style: "color:gray;")%></div>
+    </div>
+    <div class="row" id="open-inquiry-form">
+      <div>問合せをしたい</div>
+    </div>
+    <div class="row" id="open-inquiry-form-2">
+      <div>不正ユーザーがいた</div>
+    </div>
+    <div class="row" id="open-release-form">
+      <div>ブロックを解除したい</div>
+    </div>
+    <div class="row" id="open-delete-form">
+      <div>退会したい</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="inquiry-modal-back">
+</div>
+
+<div class="inquiry-form">
+  <div id="close-inquiry-modal-1"><i class="fas fa-times"></i> 閉じる</div>
+  こちらから問合せをお願いします<br>
+  <%= form_with(model: @inquiry,url: "/inquiry", local: true) do |f| %>
+  <%= f.text_area :content, placeholder: "メッセージを入力"%><br>
+  <%=f.submit "送信"%>
+  <% end %>
+</div>
+
+<div class="inquiry-form-2">
+  <div id="close-inquiry-modal-2"><i class="fas fa-times"></i> 閉じる</div>
+  こちらに不正と思われるユーザー名と不正の内容をお書きください<br>
+  <%= form_with(model: @inquiry,url: "/inquiry", local: true) do |f| %>
+  <%= f.text_area :content, placeholder: "例) ユーザー名:太郎 内容:卑猥な投稿をしていた"%><br>
+  <%=f.submit "送信"%>
+  <% end %>
+</div>
+
+<div class="release-form">
+  <div id="close-inquiry-modal-3"><i class="fas fa-times"></i> 閉じる</div>
+  ブロックを解除したいメンバー名を選択してください<br>
+  <% Block.where(from_id: @current_member.id).each do |block| %>
+  <%= link_to(Member.find_by(id: block.to_id).name , "/release/#{block.id}", method: :post, style: "color:orange;")%><br>
+  <% end %>
+</div>
+
+<div class="delete-form">
+  <div id="close-inquiry-modal-4"><i class="fas fa-times"></i> 閉じる</div>
+  退会でよろしければ以下のボタンを押してください<br>
+  <%= link_to '退会する', @current_member, method: :delete, data: { confirm: '本当に退会しますか?' } ,style: "color:red;"%>
+</div>
+
+<%= backward %>

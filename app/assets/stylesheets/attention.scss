@@ -1,0 +1,95 @@
+// Place all the styles related to the attention controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.likes-member{
+    width:50%;
+    margin:auto;
+    margin-top: 100px;
+    background-color: rgb(255, 255, 255);
+    box-shadow:1px 1px 7px rgb(172, 172, 172);
+  }
+
+  .likes-band{
+    width:50%;
+    margin:auto;
+
+    background-color: rgb(255, 255, 255);
+  }
+
+  .likes-title{
+    width:100%;
+    background-color: rgb(79, 191, 197);
+    margin-bottom: 10px;
+    height :50px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+  }
+
+  .likes-row{
+    border-bottom:dotted 1px  lightgray;
+    padding:10px;
+  }
+
+  .likes-row-prof{
+    text-align: center;
+  }
+  .likes-row-prof span{
+    color:gray;
+    font-size: 13px;
+  }
+  .likes-row-details {
+    color: gray;
+  }
+
+  .likes-row-details{
+    margin-top: 3px;
+    text-align: center;
+  }
+
+  .likes-row-content{
+    font-size: 12px;
+    color:gray;
+  }
+
+  .likes-row-writer{
+    color:gray;
+  }
+
+
+  .m a{ font-size:16px; color:rgb(0, 162, 255); }
+  .f a{font-size:16px; color:rgb(247, 118, 247);}
+  .n a{font-size:16px; color:rgb(105, 105, 105);}
+
+  .likes-row-band-link a{
+    color:gray;
+  }
+
+  .likes-row-title a{
+    color:gray;
+  }
+
+  @media screen and (max-width: 767px) {
+
+
+    
+
+    .likes-title{
+        width: 100%;
+    }
+
+    .likes-member{
+      width:95%;
+      margin-top: 70px;
+    }
+
+    .likes-band{
+      width:95%;
+      
+    }
+
+    .error_message{
+        font-size: 11px;
+    }
+  }

@@ -1,0 +1,91 @@
+<div class="member-show">
+<div style="position:relative; top:30px; left:20px; z-index:3;">
+  <% if @current_member == @member%>
+    <%= link_to('/') do %>
+    <i class="fas fa-angle-left"  style="color:lightgray; font-size:35px;"></i>
+    <% end %>
+  <% else %>
+    <%= link_to(request.referer) do %>
+    <i class="fas fa-angle-left"  style="color:lightgray; font-size:35px;"></i>
+    <% end %>
+  <% end %>
+</div>
+  <div class="member-show-index container">
+    <div class="member-show-row-prof row">
+      <div class="col-md-6">
+        <% if  @member.image.to_s.empty?%>
+        <%= image_tag "/icon.jpg", size: '48x48', class: "icon"%>
+        <% else %>
+        <%= image_tag @member.image.to_s, size: '48x48', class: "icon"%>
+        <% end %>
+        &nbsp;<%= @member.name%>
+        <% if @member == @current_member%>
+      </div>
+      <div class="member-edit-link col-md-3">
+        <%= link_to "/members/#{@current_member.id}/edit" do %>
+        編集
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">年齢</div>　<div class="col-md-8"><%= @member.age%></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3"> パート </div>
+    <div class="col-md-8">
+      <%= display_items(@member.parts, Constant::PART, :items) %>　
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3">地域</div>
+    　<div class="col-md-8"><%= @member.pref%></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">ステータス</div>
+    <div class="col-md-8">
+      <%= display_items(@member.status, Constant::MEMBER_STATUS, :items) %>　
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3">音源</div>
+    <div class="col-md-8">
+      　<% if @member.portfolio.present? %>
+      <%= link_to(@member.portfolio.to_s, @member.portfolio.to_s) %>
+      <% else %>
+      -
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">プロフィール</div>　<div class="col-md-8"><%= @member.profile%></div>
+  </div>
+
+  <% if @member != @current_member%>
+  <div class="row">
+    <div class="col-6">
+      <%= link_to( "/likes/#{@member.id}/member/create", method: :post) do %>
+      <i class="fas fa-heart" id="favorite"></i>
+      <p>お気に入りに保存</p>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <%= link_to( "/rooms/create/#{@member.id}", method: :post) do %>
+      <i class="fas fa-envelope"></i>
+      <p>メッセージを送る</p>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+</div>
+<% end %>

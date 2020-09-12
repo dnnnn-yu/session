@@ -1,0 +1,82 @@
+<div class="post-edit">
+  <div class="post-edit-title">
+    記事編集
+  </div>
+  <% if @error_message %>
+  <div class="error-message"><%= @error_message %></div>
+  <% end %>
+
+  <div class="post-edit-form container">
+    <%= form_with(model: @post, local: true) do |f| %>
+
+    <div class="post-edit-row row">
+      <%= f.label :タイトル , class: "col-md-3"%>
+      <div class="col-md-9"><%= f.text_field :title ,style: "width:80%;"%>
+      </div>
+    </div>
+
+    <div class="post-edit-row row">
+      <%= f.label :活動地域 , class: "col-md-3"%>
+      <div class="col-md-9">
+        <%= f.select :pref, Post.prefs.keys, {prompt: '都道府県を選択'} %>
+      </div>
+    </div>
+
+    <div class="post-edit-row row">
+      <%= f.label :記事の種類 , class: "col-md-3"%>
+      <div class="col-md-9">
+        <div style="display: inline-block; margin:auto; text-align:left;">
+          <%= f.check_box :status, {multiple: true, checked: @post.status&.include?("b")}, "b", nil %>加入希望<br>
+          <%= f.check_box :status, {multiple: true, checked: @post.status&.include?("0")}, "0", nil %>メンバー募集(オリジナル)<br>
+          <%= f.check_box :status, {multiple: true, checked: @post.status&.include?("1")}, "1", nil %>メンバー募集(コピー)<br>
+          <!--<%= f.check_box :status, {multiple: true, checked: @post.status&.include?("2")}, "2", nil %>サポートメンバー募集<br>
+          <%= f.check_box :status, {multiple: true, checked: @post.status&.include?("3")}, "3", nil %>スタッフ募集-->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="post-edit-row row">
+      <%= f.label :年齢　, class: "col-md-3"%>
+      <div class="age-form col-md-9">
+        <%= f.number_field :age_min %>才 ~ <%= f.number_field :age_max %>才
+      </div>
+    </div>
+
+    <div class="post-edit-row row">
+      <%= f.label :募集パート , class: "col-md-3"%>
+      <div class="col-md-9">
+        <%= f.check_box :parts, {multiple: true, checked: @post.parts&.include?("0")}, "0", nil %>ボーカル
+        <%= f.check_box :parts, {multiple: true, checked: @post.parts&.include?("1")}, "1", nil %>ギター
+        <%= f.check_box :parts, {multiple: true, checked: @post.parts&.include?("2")}, "2", nil %>ベース
+        <%= f.check_box :parts, {multiple: true, checked: @post.parts&.include?("3")}, "3", nil %>ドラム<br>
+        <%= f.check_box :parts, {multiple: true, checked: @post.parts&.include?("4")}, "4", nil %>キーボード
+        <%= f.check_box :parts, {multiple: true, checked: @post.parts&.include?("5")}, "5", nil %>作詞
+        <%= f.check_box :parts, {multiple: true, checked: @post.parts&.include?("6")}, "6", nil %>作曲
+        <%= f.check_box :parts, {multiple: true, checked: @post.parts&.include?("7")}, "7", nil %>その他
+      </div>
+    </div>
+
+    <div class="post-edit-row row">
+      <%= f.label "音源" , class: "col-md-3"%>
+      <div class="col-md-9">
+        URL : <%= f.text_field :portfolio %>
+      </div>
+    </div>
+
+    <div class="post-edit-row row">
+      <%= f.label :内容 , class: "col-md-3" %>
+      <div class="col-md-9">
+        <%= f.text_area :content %>
+      </div>
+    </div>
+
+    <div>
+      <%=f.submit "修正", class: "post-edit-button"%>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
+<%= backward %>

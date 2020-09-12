@@ -1,0 +1,20 @@
+<div class="member-login">
+  <div class="member-login_title">管理者ページ</div>
+  <div>
+    <p style="margin:10px;">総ユーザー数: <%= @members_all%>人</p>
+  </div>
+  <div>
+    <p style="margin:10px;">本日の新規登録者数: <%= @members_today%>人</p>
+  </div>
+  <div>
+    <p style="margin:10px;">今週の新規登録者数: <%= @members_week%>人</p>
+  </div>
+  <div>
+    <p style="margin:10px;">今月の新規登録者数: <%= @members_month%>人</p>
+  </div>
+
+  <div style="margin-top:10px;">
+    <%= link_to("問合せ一覧", "/inquiry_index", style: "text-align:center; color:blue;")%>
+  </div>
+</div>
+</div>

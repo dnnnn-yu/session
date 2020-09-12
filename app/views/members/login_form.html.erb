@@ -1,0 +1,25 @@
+<div class="member-login">
+  <div class="member-login_title">ログインフォーム</div>
+  <% if @error_message %>
+  <p class="error_message"><%= @error_message %></p>
+  <% end %>
+  <%= form_with(model: @member, url: "/login", local: true) do |f| %>
+  <div>
+    <%= f.text_field :email , value: @email, placeholder:" メールアドレス" ,class: "member-login-form"%>
+  </div>
+
+  <div>
+    <%= f.password_field :password , value: @password, placeholder:"パスワード",class: "member-login-form"%>
+  </div>
+
+  <div>
+    <%=f.submit "ログイン", class: "member-login-button"%>
+  </div>
+
+  <% end %>
+
+  <p style="font-size:10px; padding-bottom:10px;">まだアカウントをお持ちでない方は<%=link_to "こちら", "signup", style: "color:#3399FF; text-decoration:underline;"%></p>
+
+</div>
+
+<%= backward %>

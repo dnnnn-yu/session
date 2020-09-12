@@ -1,0 +1,39 @@
+<div class="search-result">
+
+  <div class="search-result-title">検索結果(<%= @posts.count%>件)</div>
+
+  <div class="search-result-index container">
+
+    <% if @posts.count == 0%>
+    <div class="search-result-row row">
+      <div class="col-12" style="text-align:center; color:gray;">
+        該当する募集記事はありません
+      </div>
+    </div>
+    <% end %>
+
+    <% @posts.each do |post|%>
+
+    <div class="search-result-row row">
+      <div class="search-result-row-title col-12">
+        <%= link_to(post.title, "/posts/#{post.id}")%>
+      </div>
+      <div class="search-result-row-content col-12">
+        「<%= post.content&.truncate(30, omission: '...')%>」
+      </div>
+      <div class="search-result-row-writer col-12">
+        　 <i class="fas fa-user-edit"></i> <%= Member.find_by(id: post.member_id)&.name %>
+      </div>
+      <div class="search-result-row-writer col-12">
+        <% if post.pref%>
+           <i class="fas fa-map-marker-alt"></i><%= post.pref%> 
+        <% end %>
+        <i class="far fa-clock"></i><%= post.updated_at.to_date%>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
+<%= backward('/search/posts') %>

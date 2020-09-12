@@ -1,0 +1,24 @@
+<div class="search-result">
+
+  <div class="search-result-title">保存記事一覧</div>
+
+  <div class="search-result-index container">
+
+    <% @posts.each do |post|%>
+    <div class="search-result-row row">
+      <div class="search-result-row-title col-md-3">
+        <%= link_to(post.title, "/posts/#{post.id}")%>
+      </div>
+      <div class="search-result-row-content col-md-6">
+        「<%= post.content&.truncate(30, omission: '...')%>」
+      </div>
+      <div class="search-result-row-writer">
+        　 <i class="fas fa-feather-alt"></i> <%= Member.find_by(id: post.member_id)&.name %>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
+<%= backward %>

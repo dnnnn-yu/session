@@ -1,0 +1,52 @@
+<div class="talk-title">
+  <span class="talk-title-left"> 
+    <%= link_to('/rooms') do %>
+      <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </span>
+  <%= link_to Member.find_by(id: @member_id).name, "/members/#{@member_id}"%>
+  <span class="talk-title-right">
+    <i class="fas fa-ellipsis-h"></i>
+  </span>
+</div>
+
+<div class="talk-menu">
+  <div id="open-invite-modal" style="display:none;">
+    バンドに招待する
+  </div>
+
+  <div class="talk-menu-block">
+    <%= link_to "ブロックする", "/blocks/create/#{@member_id}", method: :post,
+      data: { confirm: 'ブロックしますか？' }
+    %>
+  </div>
+
+</div>
+
+<div class="talk-space" id='talks' data-room_id="<%= @room.id %>" data-my_id="<%= @current_member.id %>">
+  <% @talks.each do |talk|%>
+    <% if talk.member_id == @current_member.id %>
+      <div class='mytalk'>
+        <%= talk.content %>
+      </div>
+    <% else %>
+      <div class='yourtalk'>
+        <%= talk.content %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<form class="talk-form">
+  <textarea type="text" data-behavior="room_speaker" class="speaker_txt" placeholder="メッセージを入力"></textarea>
+  <button class="talk-button chat_sendbtn">送信</button>
+</form>
+</div>
+
+<div class="talk-modal-back">
+</div>
+
+<script>
+  var $scrollAuto = $('.talk-space');
+  $scrollAuto.scrollTop($scrollAuto[0].scrollHeight);
+</script>
