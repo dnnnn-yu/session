@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = @current_member.posts
+    @post = Post.find_by(id: params[:id])
   end
 
   def new

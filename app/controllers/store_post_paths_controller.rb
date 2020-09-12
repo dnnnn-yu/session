@@ -8,7 +8,7 @@ class StorePostPathsController < ApplicationController
     end
   
     def create
-      StorePost.create(post_id: params[:id], member_id: @current_member.id)
+      StorePostPath.create(post_id: params[:id], member_id: @current_member.id)
       redirect_to('/store_post_paths')
     end
   end
