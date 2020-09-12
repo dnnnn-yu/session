@@ -32,9 +32,9 @@ Rails.application.routes.draw do
   get '/likes' => 'likes#index'
   post '/likes/:id/:type/create' => 'likes#create'
 
- # saves
-  get '/saves' => 'saves#index'
-  post '/saves/:id/create' => 'saves#create'
+ # store_post_paths
+  get '/store_post_paths' => 'store_post_paths#index'
+  post '/store_post_paths/:id/create' => 'store_post_paths#create'
 
   # search
   get '/search/members' => 'search#member_form'

@@ -2,11 +2,11 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(member_id: @current_member.id)
+    @posts = @current_member.posts
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = @current_member.posts
   end
 
   def new

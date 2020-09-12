@@ -73,7 +73,7 @@
   <% if @member != @current_member%>
   <div class="row">
     <div class="col-6">
-      <%= link_to( "/likes/#{@member.id}/member/create", method: :post) do %>
+      <%= link_to( "/likes/#{@member.id}/like_member/create", method: :post) do %>
       <i class="fas fa-heart" id="favorite"></i>
       <p>お気に入りに保存</p>
       <% end %>

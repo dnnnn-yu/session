@@ -71,7 +71,7 @@
     <% if @current_member&.id != @post.member_id%>
     <div class="row">
       <div class="col-6 col-md-6">
-        <%= link_to("/saves/#{@post.id}/create", method: :post) do %>
+        <%= link_to("/store_post_paths/#{@post.id}/create", method: :post) do %>
         <i class="fas fa-save"></i>
         <p>記事を保存</p>
         <% end %>
