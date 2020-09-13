@@ -9,4 +9,22 @@ module Master
     徳島県: 36, 香川県: 37, 愛媛県: 38, 高知県: 39,
     福岡県: 40, 佐賀県: 41, 長崎県: 42, 熊本県: 43, 大分県: 44, 宮崎県: 45, 鹿児島県: 46, 沖縄県: 47
   }
+
+  REGION = {
+    北海道: [1],
+    東北地方: [2, 3, 4, 5, 6, 7],
+    関東地方: [8, 9, 10, 11, 12, 13, 14],
+    中部地方: [15, 16, 17, 18, 19, 20, 21, 22, 23],
+    近畿地方: [24, 25, 26, 27, 28, 29, 30],
+    中国地方: [31, 32, 33, 34, 35],
+    四国地方: [36, 37, 38, 39],
+    九州地方: [40, 41, 42, 43, 44, 45, 46],
+    沖縄: [47]
+  }
+
+  def belongs_region(pref_number)
+    REGION.each do |region_name, pref_numbers|
+      { region_name: region_name, pref_numbers: pref_numbers } if pref_numbers.include?(pref_number)
+    end
+  end
 end

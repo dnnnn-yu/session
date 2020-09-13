@@ -5,27 +5,7 @@ class HomeController < ApplicationController
     @posts = Post.all.order(created_at: 'DESC').first(7)
 
     if @current_member&.pref
-      pref = @current_member.pref_before_type_cast
-      area = []
-      if pref >= 2 && pref <= 7
-        area = [2, 3, 4, 5, 6, 7]
-      elsif  pref >= 8 && pref <= 14
-        area = [8, 9, 10, 11, 12, 13, 14]
-      elsif  pref >= 15 && pref <= 18
-        area = [15, 16, 17, 18]
-      elsif  pref >= 19 && pref <= 23
-        area = [19, 20, 21, 22, 23]
-      elsif  pref >= 24 && pref <= 30
-        area = [24, 25, 26, 27, 28, 29, 30]
-      elsif  pref >= 31 && pref <= 35
-        area = [31, 32, 33, 34, 35]
-      elsif  pref >= 36 && pref <= 39
-        area = [36, 37, 38, 39]
-      elsif  pref >= 40 && pref <= 46
-        area = [40, 41, 42, 43, 44, 45, 46]
-      elsif pref ==  47
-        area = [47]
-      end
+      area = belongs_region(@current_member.pref_before_type_cast)[:pref_numbers]
       @recommend_posts = Post.ransack(
         'pref_eq_any' => area,
         'status_cont_any' => @current_member.status&.split(''),
