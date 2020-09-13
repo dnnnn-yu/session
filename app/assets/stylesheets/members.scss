@@ -8,11 +8,11 @@
     height: 40px;
     padding-top: 7px;
     margin-bottom: 10px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    background-color: lightgray;
-    border: solid 1px lightgray;
-    
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    background-color: rgb(79, 191, 197);
+    border: solid 1px 79, 191, 197;
+    color: white;
 }
 
 
@@ -20,7 +20,7 @@
     width: 400px;
     margin: auto;
     margin-top: 100px;
-    border-radius: 10px;
+    border-radius: 3px;
     background-color: white; 
     text-align: center;
     box-shadow:1px 1px 7px rgb(172, 172, 172);
@@ -45,11 +45,12 @@
 .member-login-button{
   padding: 0px 10px;
   text-align: center;
-  background-color: lightgray;
+  color:white;
+  background-color: rgb(79, 191, 197);
   height:30px;
   border-radius: 3px;
   margin: 10px ;
-  border: solid 1px lightgray;
+  border: solid 1px rgb(79, 191, 197);
 }
 
 .member-pre-login-button{
