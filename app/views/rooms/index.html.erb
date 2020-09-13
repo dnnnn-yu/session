@@ -2,29 +2,32 @@
   <div class="rooms-title">トーク</div>
   <div class="rooms-index container">
     <% @rooms.each do |room| %>
-    <% #FIXME: 参加してるルームの中から自分でない参加者を一人選んでアイコンを表示するとい仕様なので、今後複数人のルームができたときに備えて直したい %>
-    <% #FIXME: 最新のトーク順などに並び替える %>
-      <% if speaker = room.participant_members.where.not(id: @block_members_ids + [@current_member.id]).first %>
-        <div class="rooms-index-row row">
-          <div class="col-4">
-            <div>
-              <% if speaker.image.to_s.empty?%>
-                <%= image_tag "/icon.jpg", size: '48x48', class: "icon" %>
-              <% else %>
-                <%= image_tag speaker.image.to_s , size: '48x48', class: "icon" %>
-              <% end %>
+    <% # FIXME: 最新のトーク順などに並び替える %>
+      <% if room.multiple %>
+        <% # TODO: 参加してるルームの中から自分でない参加者を一人選んでアイコンを表示するとい仕様なので、今後複数人のルームができたときに備えて直したい %>
+      <% else %>
+        <% if speaker = room.participant_members.where.not(id: @block_members_ids + [@current_member.id]).first %>
+          <div class="rooms-index-row row">
+            <div class="col-4">
+              <div>
+                <% if speaker.image.to_s.empty?%>
+                  <%= image_tag "/icon.jpg", size: '48x48', class: "icon" %>
+                <% else %>
+                  <%= image_tag speaker.image.to_s , size: '48x48', class: "icon" %>
+                <% end %>
+              </div>
+              <div>
+                <%= link_to  "/rooms/#{room.id}", data: {"turbolinks" => false}  do %>
+                  <%= speaker.name%>
+                <% end %>
+              </div>
             </div>
-            <div>
-              <%= link_to  "/rooms/#{room.id}", data: {"turbolinks" => false}  do %>
-                <%= speaker.name%>
-              <% end %>
+            <div class="talk-head col-8">
+              <%= room.talks.last&.content&.truncate(25, omission: '...') %>
             </div>
           </div>
-          <div class="talk-head col-8">
-            <%= room.talks.last&.content&.truncate(25, omission: '...') %>
-          </div>
-        </div>
-      <% end %> 
+        <% end %> 
+      <% end %>
     <% end %>
   </div>
 </div>

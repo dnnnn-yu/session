@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_12_123932) do
+ActiveRecord::Schema.define(version: 2020_09_13_002346) do
 
   create_table "blocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "from_id"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_123932) do
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "multiple", default: false, null: false
   end
 
   create_table "store_post_paths", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
