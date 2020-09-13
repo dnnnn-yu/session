@@ -107,15 +107,16 @@
 }
 
 @media screen and (max-width: 767px) {
-    .post-show{ width: 95%; 
-      margin-top: 70px;
-    }
-
-    .post-edit{
-      width: 95%;
-      margin-top: 70px;
+  .post-show { 
+    width:92%; 
+    margin-top: 70px;
   }
-  .post-edit-title{
+
+  .post-edit {
+    width: 95%;
+    margin-top: 70px;
+  }
+  .post-edit-title {
     width: 100%;
   }
 }
