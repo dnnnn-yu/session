@@ -28,4 +28,8 @@ class Member < ApplicationRecord
   enum pref: Master::PREFECTURES
 
   mount_uploader :image, ImagesUploader
+
+  def age
+    (Date.current.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
+  end
 end

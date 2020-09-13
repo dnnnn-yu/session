@@ -33,8 +33,7 @@
 
     <div class="search-form-row row">
       <%= f.label :年齢　, class: "col-lg-4"%>
-      <div class="age-form col-lg-8"> <%= f.number_field :age_gteq %>才 ~ <%= f.number_field :age_lteq %>才 </div>
-
+      <div class="age-form col-lg-8"> <%= f.number_field :birthday_lteq %>才 ~ <%= f.number_field :birthday_gteq %>才 </div>
     </div>
 
     <div class="search-form-row row">
@@ -42,7 +41,6 @@
       <div class="col-lg-8">
         <%= f.select :pref_eq, Member.prefs.keys, {prompt: '都道府県を選択'} %>
       </div>
-
     </div>
 
     <div class="search-form-row row">
