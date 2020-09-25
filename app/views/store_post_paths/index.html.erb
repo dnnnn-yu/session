@@ -1,11 +1,11 @@
-<div class="search-result">
+<div class="portlet-frame">
 
-  <div class="search-result-title">保存記事一覧</div>
+  <div class="portlet-header lightblue">保存記事一覧</div>
 
-  <div class="search-result-index container">
+  <div class="container">
 
     <% @posts.each do |post|%>
-    <div class="search-result-row row">
+    <div class="portlet-row row">
       <div class="search-result-row-title col-md-3">
         <%= link_to(post.title, "/posts/#{post.id}")%>
       </div>

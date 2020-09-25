@@ -1,8 +1,8 @@
-<div class="member-edit-form container">
+<div class="container">
 
   <%= form_with(model: @member, local: true) do |f| %>
 
-  <div class="member-edit-row row">
+  <div class="portlet-row row">
     <%= f.label "名前(必須)" , class: "col-lg-4"%>
     <div class="col-lg-8">
       <% if member.name == "No name" || member.name.nil? %>
@@ -14,14 +14,14 @@
 
   </div>
 
-  <div class="member-edit-row row">
+  <div class="portlet-row row">
     <%= f.label :プロフィール画像 , class: "col-lg-4" %>
     <div class="col-lg-8">
       <%= f.file_field :image %>
     </div>
   </div>
 
-  <div class="member-edit-row row">
+  <div class="portlet-row row">
     <%= f.label :生年月日 , class: "col-lg-4" %>
     <div class="col-lg-8">
       <%= f.date_select :birthday,
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="member-edit-row row">
+  <div class="portlet-row row">
     <%= f.label :性別 , class: "col-lg-4"%>
     <div class="col-lg-8">
       <%= f.radio_button :gender, 'm' %>
@@ -43,7 +43,7 @@
     </div>
   </div>
 
-  <div class="member-edit-row row">
+  <div class="portlet-row row">
     <%= f.label "パート(複数選択可)" , class: "col-lg-4" %>
     <div class="col-lg-8">
       <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("0")}, "0", nil %>ボーカル
@@ -58,14 +58,14 @@
     </div>
   </div>
 
-  <div class="member-edit-row row">
+  <div class="portlet-row row">
     <%= f.label :活動地域  , class: "col-lg-4"%>
     <div class="col-lg-8">
       <%= f.select :pref, Member.prefs.keys, {prompt: '都道府県を選択'} %>
     </div>
   </div>
 
-  <div class="member-edit-row row">
+  <div class="portlet-row row">
     <%= f.label "ステータス(複数選択可)" , class: "col-lg-4" %>
     <div class="col-lg-8">
       <div style="display: inline-block; margin:auto; text-align:left;">
@@ -78,14 +78,14 @@
     </div>
   </div>
 
-  <div class="member-edit-row row">
+  <div class="portlet-row row">
     <%= f.label "音源"  , class: "col-lg-4"%>
     <div class="col-lg-8">
       URL <%= f.text_field :portfolio , class: "form_input"%>
     </div>
   </div>
 
-  <div class="member-edit-row row">
+  <div class="portlet-row row">
     <%= f.label :プロフィール , class: "col-lg-4" %>
     <div class="col-lg-8">
       <%= f.text_area :profile %>
@@ -93,7 +93,7 @@
   </div>
 
   <div>
-    <%=f.submit "登録" , class: "member-edit-button"%>
+    <%=f.submit "登録" , class: "submit-button gray"%>
   </div>
 
   <div>

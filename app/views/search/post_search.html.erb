@@ -1,11 +1,11 @@
-<div class="search-result">
+<div class="portlet-frame">
 
-  <div class="search-result-title">検索結果(<%= @posts.count%>件)</div>
+  <div class="portlet-header lightblue">検索結果(<%= @posts.count%>件)</div>
 
-  <div class="search-result-index container">
+  <div class="container">
 
     <% if @posts.count == 0%>
-    <div class="search-result-row row">
+    <div class="portlet-row row">
       <div class="col-12" style="text-align:center; color:gray;">
         該当する募集記事はありません
       </div>
@@ -14,7 +14,7 @@
 
     <% @posts.each do |post|%>
 
-    <div class="search-result-row row">
+    <div class="portlet-row row">
       <div class="search-result-row-title col-12">
         <%= link_to(post.title, "/posts/#{post.id}")%>
       </div>

@@ -1,5 +1,5 @@
-<div class="post-edit">
-  <div class="post-edit-title pedi">
+<div class="portlet-frame">
+  <div class="portlet-header gray pedi">
     記事作成
     <div>
       <%= link_to("(マイ記事一覧)", "/posts")%>
@@ -9,23 +9,23 @@
   <div class="error-message"><%= @error_message %></div>
   <% end %>
 
-  <div class="post-edit-form container">
+  <div class="container">
     <%= form_with(model: @post, local: true) do |f| %>
 
-    <div class="post-edit-row row">
+    <div class="portlet-row row">
       <%= f.label :タイトル , class: "col-md-3"%>
       <div class="col-md-9"><%= f.text_field :title ,style: "width:80%;"%>
       </div>
     </div>
 
-    <div class="post-edit-row row">
+    <div class="portlet-row row">
       <%= f.label :活動地域 , class: "col-md-3"%>
       <div class="col-md-9">
         <%= f.select :pref, Post.prefs.keys, {prompt: '都道府県を選択'} %>
       </div>
     </div>
 
-    <div class="post-edit-row row">
+    <div class="portlet-row row">
       <%= f.label :記事の種類 , class: "col-md-3"%>
       <div class="col-md-9">
         <div style="display: inline-block; margin:auto; text-align:left;">
@@ -39,14 +39,14 @@
     </div>
 
 
-    <div class="post-edit-row row">
+    <div class="portlet-row row">
       <%= f.label :年齢　, class: "col-md-3"%>
       <div class="age-form col-md-9">
         <%= f.number_field :age_min %>才 ~ <%= f.number_field :age_max %>才
       </div>
     </div>
 
-    <div class="post-edit-row row">
+    <div class="portlet-row row">
       <%= f.label :募集パート , class: "col-md-3"%>
       <div class="col-md-9">
         <%= f.check_box :parts, {multiple: true, checked: @post.parts&.include?("0")}, "0", nil %>ボーカル
@@ -60,14 +60,14 @@
       </div>
     </div>
 
-    <div class="post-edit-row row">
+    <div class="portlet-row row">
       <%= f.label "音源" , class: "col-md-3"%>
       <div class="col-md-9">
         URL : <%= f.text_field :portfolio %>
       </div>
     </div>
 
-    <div class="post-edit-row row">
+    <div class="portlet-row row">
       <%= f.label :内容 , class: "col-md-3" %>
       <div class="col-md-9">
         <%= f.text_area :content %>
@@ -75,7 +75,7 @@
     </div>
 
     <div>
-      <%=f.submit "投稿", class: "post-edit-button"%>
+      <%=f.submit "投稿", class: "submit-button gray"%>
     </div>
     <% end %>
   </div>

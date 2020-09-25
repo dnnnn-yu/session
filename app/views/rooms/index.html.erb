@@ -1,13 +1,13 @@
-<div class="rooms">
-  <div class="rooms-title">トーク</div>
-  <div class="rooms-index container">
+<div class="portlet-frame">
+  <div class="portlet-header lightblue">トーク</div>
+  <div class="container">
     <% @rooms.each do |room| %>
     <% # FIXME: 最新のトーク順などに並び替える %>
       <% if room.multiple %>
         <% # TODO: 参加してるルームの中から自分でない参加者を一人選んでアイコンを表示するとい仕様なので、今後複数人のルームができたときに備えて直したい %>
       <% else %>
         <% if speaker = room.participant_members.where.not(id: @block_members_ids + [@current_member.id]).first %>
-          <div class="rooms-index-row row">
+          <div class="portlet-row row">
             <div class="col-4">
               <div>
                 <% if speaker.image.to_s.empty?%>
@@ -17,8 +17,8 @@
                 <% end %>
               </div>
               <div>
-                <%= link_to  "/rooms/#{room.id}", data: {"turbolinks" => false}  do %>
-                  <%= speaker.name%>
+                <%= link_to  "/rooms/#{room.id}", data: {"turbolinks" => false} , style: "color:gray;" do %>
+                  <%= speaker.name %>
                 <% end %>
               </div>
             </div>

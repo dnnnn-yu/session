@@ -1,9 +1,9 @@
-<div class="search">
-  <div class="search-title">メンバー検索</div>
-  <div class="search-form container">
+<div class="portlet-frame">
+  <div class="portlet-header lightblue">メンバー検索</div>
+  <div class="container">
     <%= search_form_for(@search, url: '/search/members_index') do |f| %>
 
-    <div class="search-form-row row">
+    <div class="portlet-row row">
       <%= f.label :パート , class: "col-lg-4"%>
       <div class="col-lg-8">
         <%= f.check_box :parts_cont_any, {multiple: true}, "0", nil %>ボーカル
@@ -18,7 +18,7 @@
 
     </div>
 
-    <div class="search-form-row row">
+    <div class="portlet-row row">
       <%= f.label :性別 , class: "col-lg-4"%>
       <div class="col-lg-8">
         <%= f.radio_button :gender_cont, 'm' %>
@@ -31,19 +31,19 @@
 
     </div>
 
-    <div class="search-form-row row">
+    <div class="portlet-row row">
       <%= f.label :年齢　, class: "col-lg-4"%>
       <div class="age-form col-lg-8"> <%= f.number_field :birthday_lteq %>才 ~ <%= f.number_field :birthday_gteq %>才 </div>
     </div>
 
-    <div class="search-form-row row">
+    <div class="portlet-row row">
       <%= f.label :活動地域 , class: "col-lg-4"%>
       <div class="col-lg-8">
         <%= f.select :pref_eq, Member.prefs.keys, {prompt: '都道府県を選択'} %>
       </div>
     </div>
 
-    <div class="search-form-row row">
+    <div class="portlet-row row">
       <%= f.label :ステータス , class: "col-lg-4"%>
       <div class="col-lg-8">
         <div style="display: inline-block; margin:auto; text-align:left;">
@@ -55,7 +55,7 @@
 
     </div>
 
-    <div class="search-form-row row">
+    <div class="portlet-row row">
       <%= f.label :音源の有無 , class: "col-lg-4"%>
       <div class="col-lg-8">
         <%= f.radio_button :portfolio_present, true %>
@@ -66,7 +66,7 @@
 
     </div>
 
-    <%= f.submit "検索" , class: "search-button"%>
+    <%= f.submit "検索" , class: "submit-button lightblue"%>
 
     <% end %>
 

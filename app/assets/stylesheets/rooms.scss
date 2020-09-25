@@ -2,50 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-
-
-.rooms{
-    width: 700px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 3px;
-    text-align: center;
-    background-color: white; 
-    padding-bottom:10px;
-    box-shadow:1px 1px 7px rgb(172, 172, 172);
-    
-  }
-
-  .rooms .col-4{
-      text-align: center;
-
-  }
-
-.rooms-title{
-    color: rgb(255, 255, 255);
-    width: 700px;
-    height: 40px;
-    padding-top: 7px;
-    margin-bottom: 10px;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    background-color: rgb(79, 191, 197);
-    border: solid 1px rgb(79, 191, 197);
-  }
-
-  .rooms-index-row{
-    color:rgb(87, 87, 87);
-    margin:5px;
-    padding:3px;
-    font-size: 12px;
-    border-bottom:dotted 1px  lightgray;
-}
-
-.rooms-index-row a{
-    color:gray;
-}
-
 .talk-head{
     font-size:12px;
     padding:10px;
@@ -196,11 +152,6 @@
         width:100%;
     }
 
-    .rooms{ 
-        margin-top: 70px;
-        width:95%;
-    }
-    .rooms-title{width:100%;}
     .talk-title{
         width:100%;
         margin-top:50px;
@@ -232,5 +183,4 @@
         bottom:3px;
     }
 
-    
 }

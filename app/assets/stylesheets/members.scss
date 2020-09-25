@@ -70,7 +70,7 @@
     width: 700px;
     margin: auto;
     margin-top: 100px;
-    border-radius: 10px;
+    border-radius: 3px;
     background-color: white; 
     text-align: center;
     padding-bottom:10px;
@@ -88,34 +88,15 @@
 
 
   .member-edit-title{
-    color: rgb(74, 80, 97);
+    color: white;
     width: 700px;
     height: 40px;
     padding-top: 7px;
     margin-bottom: 10px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    background-color: lightgray;
-    border: solid 1px lightgray;;
-  }
-
-  .member-edit-row{
-      color:rgb(87, 87, 87);
-      margin:5px;
-      padding:7px;
-      font-size: 12px;
-      border-bottom:dotted 1px  lightgray;
-  }
-
-  .member-edit-button{
-    padding: 0px 10px;
-    text-align: center;
-    background-color: lightgray;
-    height:30px;
-    border-radius: 15px;
-    margin: 10px ;
-    border: solid 1px lightgray;
-    color:rgb(74, 80, 97);
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    background-color: rgb(138, 138, 138);
+    border: solid 1px rgb(138, 138, 138);;
   }
 
   .member-show{
@@ -124,14 +105,14 @@
       margin-top:100px;
       background-color: white;
       padding:10px;
-      border-radius: 10px;
+      border-radius: 3px;
   }
 
   .member-show .row{
     margin:5px;
     padding:10px;
     text-align: center;
-    border-bottom: dotted lightgray 1px;
+    border-bottom: dotted rgb(138, 138, 138) 1px;
     color:gray;
     font-size: 12px;
   }
@@ -174,19 +155,9 @@
         width: 95%;
     }
 
-    .member-edit{
-        width: 95%;
-        margin-top: 70px;
-    }
-
     .member-show{
         margin-top: 70px;
         width:92%;
-    }
-
-
-    .member-edit-title{
-        width: 100%;
     }
 
     .error_message{

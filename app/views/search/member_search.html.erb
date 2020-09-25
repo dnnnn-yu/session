@@ -1,8 +1,8 @@
-<div class="search-result">
+<div class="portlet-frame">
 
-  <div class="search-result-title">検索結果(<%= @members.count%>件)</div>
+  <div class="portlet-header lightblue">検索結果(<%= @members.count%>件)</div>
 
-  <div class="search-result-index container">
+  <div class="container">
 
     <% if @members.count == 0%>
     <div class="search-result-row row">
@@ -15,7 +15,7 @@
 
     <% @members.each do |member|%>
 
-    <div class="search-result-row row">
+    <div class="portlet-row row">
       <div class="search-result-row-prof col-md-3">
         <div class="search-result-row-img">
           <% if  member.image.to_s.empty?%>
