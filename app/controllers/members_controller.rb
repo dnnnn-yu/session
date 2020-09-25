@@ -123,7 +123,6 @@ class MembersController < ApplicationController
   def update
     @member = Member.find_by(id: params[:id])
     @member.update(member_params)
-    @member.age = (Date.today.to_s(:number).to_i - @member.birthday.to_s(:number).to_i) / 10_000
     if @member.save
       @member.score = set_score(@member)
       @member.save

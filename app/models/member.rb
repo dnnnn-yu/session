@@ -30,6 +30,7 @@ class Member < ApplicationRecord
   mount_uploader :image, ImagesUploader
 
   def age
+    return if birthday.nil?
     (Date.current.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
   end
 end
