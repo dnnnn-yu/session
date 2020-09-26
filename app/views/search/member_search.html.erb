@@ -5,7 +5,7 @@
   <div class="container">
 
     <% if @members.count == 0%>
-    <div class="search-result-row row">
+    <div class="portlet-row row">
       <div class="col-12" style="text-align:center; color:gray;">
         該当するメンバーはいません
       </div>
@@ -13,7 +13,7 @@
     <% end %>
 
 
-    <% @members.each do |member|%>
+    <% @members.each_with_index do |member, i|%>
 
     <div class="portlet-row row">
       <div class="search-result-row-prof col-md-3">
@@ -53,6 +53,9 @@
       </div>
     </div>
 
+    <% if  i < @members.count - 1 %>
+      <div class="border-dashed mt5 mb10"></div>
+    <% end %>
     <% end %>
 
   </div>

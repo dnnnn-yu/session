@@ -13,6 +13,7 @@
     </div>
 
   </div>
+  <div class="border-dashed mt5 mb10"></div>
 
   <div class="portlet-row row">
     <%= f.label :プロフィール画像 , class: "col-lg-4" %>
@@ -20,6 +21,7 @@
       <%= f.file_field :image %>
     </div>
   </div>
+  <div class="border-dashed mt5 mb10"></div>
 
   <div class="portlet-row row">
     <%= f.label :生年月日 , class: "col-lg-4" %>
@@ -32,6 +34,7 @@
     %>
     </div>
   </div>
+  <div class="border-dashed mt5 mb10"></div>
 
   <div class="portlet-row row">
     <%= f.label :性別 , class: "col-lg-4"%>
@@ -42,6 +45,7 @@
       <%= f.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
     </div>
   </div>
+  <div class="border-dashed mt5 mb10"></div>
 
   <div class="portlet-row row">
     <%= f.label "パート(複数選択可)" , class: "col-lg-4" %>
@@ -57,6 +61,7 @@
       <%= f.check_box :parts, {multiple: true, checked: member.parts&.include?("8")}, "8", nil %>その他
     </div>
   </div>
+  <div class="border-dashed mt5 mb10"></div>
 
   <div class="portlet-row row">
     <%= f.label :活動地域  , class: "col-lg-4"%>
@@ -64,6 +69,7 @@
       <%= f.select :pref, Member.prefs.keys, {prompt: '都道府県を選択'} %>
     </div>
   </div>
+  <div class="border-dashed mt5 mb10"></div>
 
   <div class="portlet-row row">
     <%= f.label "ステータス(複数選択可)" , class: "col-lg-4" %>
@@ -72,11 +78,10 @@
         <%= f.check_box :status, {multiple: true, checked: member.status&.include?("a")}, "a", nil %>バンド活動中<br>
         <%= f.check_box :status, {multiple: true, checked: member.status&.include?("0")}, "0", nil %>オリジナルバンドをしたい<br>
         <%= f.check_box :status, {multiple: true, checked: member.status&.include?("1")}, "1", nil %>コピーバンドをしたい<br>
-        <!--<%= f.check_box :status, {multiple: true, checked: member.status&.include?("2")}, "2", nil %>サポートメンバーとして参加したい<br>
-        <%= f.check_box :status, {multiple: true, checked: member.status&.include?("3")}, "3", nil %>スタッフとして参加したい -->
       </div>
     </div>
   </div>
+  <div class="border-dashed mt5 mb10"></div>
 
   <div class="portlet-row row">
     <%= f.label "音源"  , class: "col-lg-4"%>
@@ -84,6 +89,7 @@
       URL <%= f.text_field :portfolio , class: "form_input"%>
     </div>
   </div>
+  <div class="border-dashed mt5 mb10"></div>
 
   <div class="portlet-row row">
     <%= f.label :プロフィール , class: "col-lg-4" %>

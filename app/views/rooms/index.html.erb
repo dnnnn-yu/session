@@ -1,7 +1,14 @@
 <div class="portlet-frame">
   <div class="portlet-header lightblue">トーク</div>
   <div class="container">
-    <% @rooms.each do |room| %>
+    <% if @rooms.count == 0%>
+      <div class="portlet-row row">
+        <div class="col-12" style="text-align:center; color:gray;">
+         　トークはありません
+        </div>
+      </div>
+    <% end %>
+    <% @rooms.each_with_index do |room, i| %>
     <% # FIXME: 最新のトーク順などに並び替える %>
       <% if room.multiple %>
         <% # TODO: 参加してるルームの中から自分でない参加者を一人選んでアイコンを表示するとい仕様なので、今後複数人のルームができたときに備えて直したい %>
@@ -27,6 +34,9 @@
             </div>
           </div>
         <% end %> 
+      <% end %>
+      <% if  i < @rooms.count - 1 %>
+        <div class="border-dashed mt5 mb10"></div>
       <% end %>
     <% end %>
   </div>

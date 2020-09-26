@@ -15,9 +15,9 @@
         <%= f.check_box :parts_cont_any, {multiple: true}, "6", nil %>作曲
         <%= f.check_box :parts_cont_any, {multiple: true}, "7", nil %>その他
       </div>
-
     </div>
-
+    <div class="border-dashed mt5 mb10"></div>
+    
     <div class="portlet-row row">
       <%= f.label :性別 , class: "col-lg-4"%>
       <div class="col-lg-8">
@@ -28,13 +28,14 @@
         <%= f.radio_button :gender_cont, '' %>
         <%= f.label :gender, "指定なし", {value: :female, style: "display: inline-block;"} %>
       </div>
-
     </div>
+    <div class="border-dashed"></div>
 
     <div class="portlet-row row">
       <%= f.label :年齢　, class: "col-lg-4"%>
       <div class="age-form col-lg-8"> <%= f.number_field :birthday_lteq %>才 ~ <%= f.number_field :birthday_gteq %>才 </div>
     </div>
+    <div class="border-dashed mt5 mb10"></div>
 
     <div class="portlet-row row">
       <%= f.label :活動地域 , class: "col-lg-4"%>
@@ -42,6 +43,7 @@
         <%= f.select :pref_eq, Member.prefs.keys, {prompt: '都道府県を選択'} %>
       </div>
     </div>
+    <div class="border-dashed mt5 mb10"></div>
 
     <div class="portlet-row row">
       <%= f.label :ステータス , class: "col-lg-4"%>
@@ -52,8 +54,8 @@
           <%= f.check_box :status_cont_any, {multiple: true}, "a", nil %>バンド活動中
         </div>
       </div>
-
     </div>
+    <div class="border-dashed mt5 mb10"></div>
 
     <div class="portlet-row row">
       <%= f.label :音源の有無 , class: "col-lg-4"%>
@@ -63,7 +65,6 @@
         <%= f.radio_button :portfolio_present, '' %>
         <%= f.label :portfolio, "指定なし", {style: "display: inline-block;"} %>
       </div>
-
     </div>
 
     <%= f.submit "検索" , class: "submit-button lightblue"%>

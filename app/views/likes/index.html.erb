@@ -3,9 +3,15 @@
   <div class="portlet-header lightblue">お気に入りメンバー</div>
 
   <div class="container">
-    <% @members.each do |member|%>
+      <% if @members.count == 0%>
+      <div class="portlet-row row">
+        <div class="col-12" style="text-align:center; color:gray;">
+         お気に入りをしているメンバーはいません
+        </div>
+      </div>
+    <% end %>
+    <% @members.each_with_index do |member, i|%>
     <div class="portlet-row row">
-
       <div class="likes-row-prof col-md-3">
         <div class="likes-row-img">
           <% if  member.image.to_s.empty?%>
@@ -24,8 +30,6 @@
         <div class="n"><%= link_to(member.name, "/members/#{member.id}")%>
           <span><%= "(#{member.age})" if member.age %></span></div>
         <% end %>
-
-
       </div>
 
       <div class="likes-row-details col-md-9">
@@ -42,9 +46,10 @@
         <% end %>
       </div>
     </div>
-
+    <% if  i < @members.count - 1 %>
+      <div class="border-dashed mt5 mb10"></div>
     <% end %>
-
+    <% end %>
   </div>
 </div>
 <%= backward %>

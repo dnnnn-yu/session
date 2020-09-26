@@ -23,7 +23,6 @@
     margin:5px;
     padding:7px;
     font-size: 12px;
-    border-bottom:dotted 1px  rgb(138, 138, 138);
 }
 
 .submit-button{
@@ -33,6 +32,29 @@
   border-radius: 15px;
   margin: 10px ;
 }  
+
+.border-dashed {
+  width:100%;
+  border-bottom:dotted 1px  rgb(138, 138, 138);
+}
+
+.mt5{
+  margin-top: 5px;
+}
+
+.mb5{
+  margin-bottom: 5px;
+}
+
+.mt10{
+  margin-top: 10px;
+}
+
+.mb10{
+  margin-bottom: 10px;
+}
+
+
 
 @media screen and (max-width: 767px) {
   .portlet-frame{
